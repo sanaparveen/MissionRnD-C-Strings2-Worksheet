@@ -12,5 +12,20 @@ Note:Dont modify original string Neglect Spaces at the right end and at left end
 
 char * get_last_word(char * str){
 
-	return NULL;
+	
+	char *result = (char *)malloc(10);
+	int index = 0, result_index = 0, lastCount = 0;
+	if (str == NULL)
+		return NULL;
+
+	for (index = 0; str[index] != '\0'; index++)
+	if (str[index] == ' ')
+		result_index = 0;
+	else
+	{
+		result[result_index++] = str[index];
+		lastCount = result_index;
+	}
+	result[lastCount] = '\0';
+	return result;
 }
